@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Points of Interest</title>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="allstyles.css" />
+    <link href="tailwind.css" rel="stylesheet" />
+    <link
+      rel="stylesheet prefetch"
+      href="https://unpkg.com/izitoast/dist/css/iziToast.min.css"
+    />
+    <link
+      rel="stylesheet prefetch"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- LEAFLET -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+  </head>
+  <body class="font-inter">
+    <!-- header navigation -->
+    <div class="px-4 pt-6 pb-0 flex flex-col justify-between">
+      <a class="flex justify-center sm:justify-start" href="/">
+        P O I N T O F I N T E R E S T S
+      </a>
+      <div class="nav flex self-center">
+        <ul id="nav" class="flex flex-row space-x-4 md:space-x-6 items-center">
+          <li>
+            <a href="/addNew" class="hover:underline bg-purple-200 px-4 py-2">
+              <span> Add new </span>
+            </a>
+          </li>
+          <li>
+            <div id="loginDiv">
+              <a
+                class="hover:underline bg-purple-200 px-4 py-2"
+                href="/login"
+                title="Login"
+              >
+                Login
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="loggedInAsDiv" style="margin-left: 2rem;">
+      <p id="loggedAs" class="text-purple-600"></p>
+      <button id="logOut" class="text-red-600 px-4 py-2  m-2"></button>
+    </div>
+    <div class="px-4 pb-10">
+      <!-- search -->
+      <div class="relative py-10">
+        <div class="mx-auto px-6">
+          <div
+            class="
+              relative
+              rounded-lg
+              px-3
+              py-10
+              bg-purple-500
+              overflow-hidden
+              shadow-2xl
+            "
+          >
+            <div aria-hidden="true" class="absolute inset-0 -mt-50"></div>
+            <div class="relative">
+              <div class="text-center">
+                <h2 class="text-3xl font-bold text-white tracking-wide">
+                  Search POI by Type
+                </h2>
+              </div>
+              <div class="search mt-12 sm:mx-auto sm:max-w-lg sm:flex">
+                <div class="min-w-0 flex-1 sm:flex sm:flex-row justify-between">
+                  <label for="poiField" class="sr-only">Poi search</label>
+                  <input
+                    id="poiField"
+                    type="search"
+                    class="
+                      search-input
+                      block
+                      w-full
+                      border border-transparent
+                      rounded-md
+                      px-5
+                      py-3
+                      text-sm
+                    "
+                    placeholder="Enter the type of POI"
+                  />
+                </div>
+                <div class="mt-3 sm:mt-0 sm:ml-3">
+                  <button
+                    type="submit"
+                    id="searchButton"
+                    class="
+                      search-button
+                      block
+                      w-full
+                      rounded-md
+                      px-5
+                      py-3
+                      bg-green-300
+                      text-base text-white
+                    "
+                  >
+                    Search
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- DISPLAY RESULTS  -->
+    <div id="resultsContainer" class="py-10 flex flex-col">
+      <div id="mapResults"></div>
+      <div id="results" class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8"></div>
+    </div>
+
+    <script src="https://unpkg.com/izitoast/dist/js/iziToast.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

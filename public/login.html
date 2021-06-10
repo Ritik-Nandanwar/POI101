@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Points of Interest</title>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="allstyles.css" />
+    <link href="tailwind.css" rel="stylesheet" />
+    <link
+      rel="stylesheet prefetch"
+      href="https://unpkg.com/izitoast/dist/css/iziToast.min.css"
+    />
+    <link
+      rel="stylesheet prefetch"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- LEAFLET -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+  </head>
+  <body class="font-inter">
+    <button
+      onclick="toTopFunction()"
+      id="toTopBtn"
+      class="
+        hidden
+        fixed
+        bottom-16
+        right-4
+        z-50
+        opacity-70
+        hover:opacity-100
+        focus:outline-none
+      "
+      title="Go to top"
+    >
+      <img src="assets/icons/arrow-up.svg" alt="Go to top" />
+    </button>
+    <!-- header navigation -->
+    <div
+      class="
+        px-4
+        pt-6
+        sm:px-16
+        sm:pt-10
+        pb-0
+        header
+        flex flex-col
+        sm:flex-row
+        justify-between
+      "
+    >
+      <a class="flex justify-center sm:justify-start" href="/">
+        P O I N T O F I N T E R E S T S
+      </a>
+      <div class="nav flex self-center">
+        <ul id="nav" class="flex flex-row space-x-4 md:space-x-6 items-center">
+          <li>
+            <a href="/addNew" class="hover:underline bg-purple-200 px-4 py-2">
+              <span> Add new </span>
+            </a>
+          </li>
+          <li>
+            <div id="loginDiv">
+              <a id="loginIcon" href="/login" title="Login"> </a>
+              <div class="flex space-x-4">
+                <p id="loggedAs" class="text-brand-navy"></p>
+                <button id="logOut" class="text-red-600"></button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- REAL NAVBAR -->
+    <!-- <div class="px-4 pt-6 pb-0 flex flex-col justify-between">
+      <a class="flex justify-center sm:justify-start" href="/">
+        P O I N T O F I N T E R E S T S
+      </a>
+      <div class="nav flex self-center">
+        <ul id="nav" class="flex flex-row space-x-4 md:space-x-6 items-center">
+          <li>
+            <a href="/addNew" class="hover:underline bg-purple-200 px-4 py-2">
+              <span> Add new </span>
+            </a>
+          </li>
+          <li>
+            <div id="loginDiv">
+              <a
+                class="hover:underline bg-purple-200 px-4 py-2"
+                href="/login"
+                title="Login"
+              >
+                Login
+              </a>
+              <div class="flex space-x-4">
+                <p id="loggedAs" class="text-brand-navy"></p>
+                <button id="logOut" class="text-red-600"></button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div> -->
+    <div class="px-4 pb-10">
+      <div class="flex items-center justify-center pt-20">
+        <div class="bg-purple-600 py-8 px-8 shadow rounded-lg ">
+          <h2 class="mb-6 text-center text-3xl text-white">
+            Enter login details.
+          </h2>
+          <div class="space-y-6">
+            <div>
+              <label
+                for="Username"
+                class="block text-sm font-medium text-white"
+              >
+                Username
+              </label>
+              <div class="mt-1">
+                <input
+                  id="username"
+                  name="Username"
+                  type="text"
+                  class="block w-full px-3 py-2 rounded-lg shadow shadow-2xl"
+                />
+              </div>
+            </div>
+            <div>
+              <label
+                for="password"
+                class="block text-sm font-medium text-white"
+              >
+                Password
+              </label>
+              <div class="mt-1">
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  class="block w-full px-3 py-2 rounded-lg shadow shadow-2xl"
+                />
+              </div>
+            </div>
+            <div>
+              <button
+                type="submit"
+                id="loginButton"
+                class="
+                  w-full
+                  flex
+                  justify-center
+                  py-2
+                  px-4
+                  rounded-md
+                  text-white
+                  bg-purple-400
+                  focus:bg-purple-800
+                "
+              >
+                Sign in
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/izitoast/dist/js/iziToast.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the app - Points of Interest</title>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="allstyles.css">
+    <link href="tailwind.css" rel="stylesheet">
+    <link rel='stylesheet prefetch' href='https://unpkg.com/izitoast/dist/css/iziToast.min.css'>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <!-- LEAFLET -->
+    <script src='https://unpkg.com/leaflet@1.7.1/dist/leaflet.js'></script>
+    <link rel='stylesheet' href='https://unpkg.com/leaflet@1.7.1/dist/leaflet.css'/>
+
+  </head>
+<body class="font-inter">
+  <button onclick="toTopFunction()" id="toTopBtn" class="hidden fixed bottom-16 right-4 z-50 opacity-70 hover:opacity-100 focus:outline-none" title="Go to top">
+      <img src="assets/icons/arrow-up.svg" alt="Go to top" />
+  </button>
+    <!-- header navigation -->
+    <div class="px-4 pt-6 sm:px-16 sm:pt-10 pb-0 header flex flex-col sm:flex-row justify-between">
+        <a class="flex justify-center sm:justify-start" href="/">
+            <img class="pb-4 sm:pb-0" src="assets/logo.svg" alt="logo">
+        </a>
+        <div class="nav flex self-center">
+            <ul id="nav" class="flex flex-row space-x-4 space-x-6 items-center">
+                <li>
+                    <a href="/addNew" class="group cursor-pointer transition ease-in-out inline-flex items-center px-4 py-2 border border-transparent shadow text-xs sm:text-base font-medium rounded-md text-brand-navy bg-brand-light-gray hover:bg-brand-navy hover:text-brand-light-gray focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-light-gray">
+                        <svg class="-ml-1 mr-3 h-5 w-5 text-brand-navy group-hover:text-brand-light-gray fill-current" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.6409 9.41667H9.49904V14.514C9.49904 15.3347 8.8279 16 8 16C7.1721 16 6.50096 15.3347 6.50096 14.514V9.41667H1.35909C0.586845 9.3374 0 8.69228 0 7.92264C0 7.153 0.586845 6.50789 1.35909 6.42861H6.48484V1.34731C6.56481 0.581757 7.21557 0 7.99194 0C8.76832 0 9.41907 0.581757 9.49904 1.34731V6.42861H14.6409C15.4132 6.50789 16 7.153 16 7.92264C16 8.69228 15.4132 9.3374 14.6409 9.41667Z" fill="fill-current"/>
+                        </svg>
+                        <span>
+                          Add new
+                      </span>
+                    </a>
+                </li>
+                <li>
+                    <div id="loginDiv">
+                        <a id="loginIcon" href="/login" title="Login">
+                          <svg class="fill-current text-brand-navy hover:text-light-navy" width="32" height="37" viewBox="0 0 32 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.994 23.168C7.368 23.168 0 24.528 0 29.968C0 35.41 7.322 36.818 15.994 36.818C24.62 36.818 31.988 35.46 31.988 30.018C31.988 24.576 24.668 23.168 15.994 23.168Z" fill="#200E32"/>
+                            <path opacity="0.4" d="M15.9942 21.168C21.8702 21.168 26.5782 16.458 26.5782 10.584C26.5782 4.71 21.8702 0 15.9942 0C10.1202 0 5.41016 4.71 5.41016 10.584C5.41016 16.458 10.1202 21.168 15.9942 21.168Z" fill="#506A7F"/>
+                          </svg>
+                        </a>
+                        <div class="flex space-x-4">
+                            <p id="loggedAs" class="text-brand-navy"></p>
+                            <button id="logOut" class="text-red-600"></button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="mx-5 md:mx-10 xl:mx-16 pt-10 sm:pt-32 flex flex-col md:flex-row justify-between items-center mb-20 md:mb-0">
+        <div class="flex order-last md:order-first pt-6 xl:pt-0 max-w-2xl px-16 md:px-0 md:pr-10 xl:pr-16 lg:w-2/3">
+            <img src="./assets/personwithpoints.png" alt="decorative image"/>
+        </div>
+        <div class="max-w-md sm:max-w-2xl xl:pt-12">
+          <h2 class="text-3xl text-brand-navy font-extrabold tracking-tight sm:text-4xl text-center xl:text-left">
+            On a mission to collect great places
+          </h2>
+          <div class="mt-6 text-brand-navy text-base leading-7 space-y-6">
+            <p>
+              The planet we live on is full of amaizng wonders, and this project collects them all. Everyone can contribute and be the part of the largest database for great points on the map of our world. 
+            </p>
+            <p>
+              <B>Search for the places to explore.</B> It doesn't matter if it's million kilometers from your home, or just around the corner. Places are waiting to be found!
+            </p>
+            <p>
+              <b>Share your favourites with others.</b> You can also recommend the points of interest that already exist, or write a review of your visit!
+            </p>
+          </div>  
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="bg-light-navy w-full fixed bottom-0 left-0 px-4 py-3 z-50 flex justify-between">
+        <p class="text-white text-sm">©️ <span id="year"></span> <a href="https://katwlodarczyk.com" target="_blank" class="hover:underline">Kat Wlodarczyk</a>. All rights reserved.</p>
+        <a href="/about" class="text-white hover:text-brand-light-gray text-sm">Learn more about the app</a>
+    </div>
+    <script src='https://unpkg.com/izitoast/dist/js/iziToast.min.js'></script>
+    <script src="index.js"></script>
+</body>
+</html>
